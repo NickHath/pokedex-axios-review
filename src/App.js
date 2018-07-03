@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// components
+import Input from './components/Input/Input';
+import PokeDisplay from './components/PokeDisplay/PokeDisplay';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      pokemonName: ''
+    };
+    this.updateName = this.updateName.bind(this);
+  }
+
+  updateName(newName) {
+    this.setState({ pokemonName: newName });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="app">
+        <h1>Be the very best, that no one ever was</h1>
+        <Input updateNameFn={ this.updateName } />
+        <p>Your Pokemon is... { this.state.pokemonName ? this.state.pokemonName : '' }</p>
+        <p>More Info:</p>
+        { this.state.pokemonName ? <PokeDisplay name={ this.state.pokemonName } /> : '' }
       </div>
     );
   }
