@@ -23,7 +23,7 @@ class PokeDisplay extends Component {
 
   catchPokemon() {
     const baseUrl = `https://pokeapi.co/api/v2/pokemon`;
-    axios.get(`${baseUrl}/${this.props.name}/`)
+    axios.get(`${baseUrl}/${this.props.name.toLowerCase()}/`)
          .then(res => {
            this.setState({ pokemonDesc: res.data });
           })

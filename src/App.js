@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 
 // components
 import Input from './components/Input/Input';
@@ -19,10 +20,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <h1>Be the very best, that no one ever was</h1>
+      <div className='app'>
+        <img src='https://t4.rbxcdn.com/1ef0c45ff8a54977ace879eaef624316' />
+        <h1>Search for Pokémon</h1>
         <Input updateNameFn={ this.updateName } />
-        <p>Your Pokemon is... { this.state.pokemonName ? this.state.pokemonName : '' }</p>
+        <p>Your Pokemon is... <br/>{ this.state.pokemonName ? this.state.pokemonName : '' }</p>
         <p>More Info:</p>
         { this.state.pokemonName ? <PokeDisplay name={ this.state.pokemonName } /> : '' }
       </div>
